@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"goCode/go_study/version"
+	"goCode/go_study/version" //导包
 )
 
 var age int
@@ -34,6 +34,6 @@ func main() {
 	fmt.Println(age2)
 	fmt.Println(qName)
 
-	// 输出引用文件的常量
+	// 输出引用文件的常量（包名.变量名）
 	fmt.Println(version.Versin1)
 }
