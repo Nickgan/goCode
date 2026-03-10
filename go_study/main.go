@@ -1,9 +1,15 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
-	var a float64 = 10
-	var b float64 = 3
-	fmt.Println(a / b)
+	//var a int = -10
+	//var b int = -3
+	//fmt.Println(a % b)
+
+	for i := 5; i < 20; i++ {
+		fmt.Println(i)
+	}
 }
