@@ -10,7 +10,7 @@ func main() {
 
 	fmt.Println("请输入你的年龄:")
 	var age int
-	n, error := fmt.Scan(&age)
+	n, error := fmt.Scanln(&age)
 	if error != nil {
 		fmt.Println("输入错误", error)
 		fmt.Println(n)
