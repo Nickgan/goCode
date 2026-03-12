@@ -18,12 +18,21 @@ func main() {
 	*bpoint = 20
 	fmt.Println("a = ", a)
 
-	n1, _ := test()
-	fmt.Println("test() = ", n1)
+	n1, n2 := test()
+	fmt.Println("test() = ", n1, n2)
 
 	test2()
 
 	//test3()
+}
+
+func test() (bool, bool) {
+	fmt.Println("test.....")
+
+	if i := 20; i < 201 {
+		fmt.Println("golang支持在if中，直接定义一个变量")
+	}
+	return true, false
 }
 
 func test3() {
@@ -33,11 +42,6 @@ func test3() {
 	var b int = 20 - i
 
 	fmt.Println("=================b = ", b)
-}
-
-func test() (bool, bool) {
-	fmt.Println("test.....")
-	return true, false
 }
 
 func test2() {
