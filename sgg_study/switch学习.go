@@ -32,6 +32,7 @@ func m21() {
 	switch a {
 	case 'a', 'b', 'c', 'd', 'e', 'f', 'g':
 		fmt.Println("输入的字符是：", a)
+		//fallthrough
 	default:
 		fmt.Println("输入的字符不是：a,b,c,d,e,f,g")
 	}
