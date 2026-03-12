@@ -6,7 +6,39 @@ import (
 
 func main() {
 
-	f3(6)
+	f4(10)
+
+	//f2()
+}
+
+/*
+*
+打印空心金字塔
+*/
+func f4(n int) {
+
+	var totalLevel int = n
+
+	// 1 表示层数
+	for i := 1; i <= totalLevel; i++ {
+
+		// 打印*前面的空格
+		for j := 1; j <= totalLevel-i; j++ {
+			fmt.Print(" ")
+		}
+
+		// 2 层数i，打印*
+		for k := 1; k <= 2*i-1; k++ {
+			if k == 1 || k == 2*i-1 || i == totalLevel {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+
+		fmt.Println()
+	}
+
 }
 
 func f3(n int) {
