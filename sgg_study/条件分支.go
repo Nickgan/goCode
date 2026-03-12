@@ -1,12 +1,21 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func main() {
 
 	//m1()
 
-	m3()
+	m4()
+}
+
+func m4() {
+	var str string = "hello world"
+	for i, v := range str {
+		fmt.Printf("%d:%c\n", i, v)
+	}
 }
 
 func m3() {

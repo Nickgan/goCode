@@ -9,7 +9,7 @@ func main() {
 	m2()
 }
 
-func m1() {
+func m11() {
 
 	var a int = 5566
 
@@ -24,7 +24,7 @@ func m1() {
 	}
 }
 
-func m2() {
+func m21() {
 
 	fmt.Println("请输入一个字符，a,b,c,d,e,f,g")
 	var a byte
