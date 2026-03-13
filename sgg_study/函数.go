@@ -2,18 +2,33 @@ package main
 
 import (
 	"fmt"
-	"goCode/sgg_study/utils"
 )
 
+type myGetSum func(int, int) int
+
 func main() {
-	fmt.Println("hello world")
 
-	fmt.Println(ff1())
+	sum := myFun(getSum, 1, 2)
+	fmt.Println("sum==========>", sum)
 
-	fmt.Println(utils.Cal(1, 2, "a"))
+	f := getSum
+	fmt.Printf("f==========> %T \n", f)
+
+	sum = myFun2(f, 1, 2)
+
+	fmt.Println("sum==========>", sum)
 }
 
-func ff1() int {
-	fmt.Println("ff1")
-	return 1
+func getSum(n1 int, n2 int) int {
+	sum := n1 + n2
+	return sum
+}
+
+func myFun(my myGetSum, n1 int, n2 int) int {
+	return my(n1, n2)
+}
+
+func myFun2(sum myGetSum, n1 int, n2 int) (a int) {
+	a = sum(n1, n2)
+	return
 }
