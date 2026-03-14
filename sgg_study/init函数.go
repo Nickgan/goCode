@@ -10,6 +10,9 @@ func test1() int {
 }
 
 func init() {
+
+	fmt.Println("init ()...===a====>", a)
+	a = 100
 	fmt.Println("init ()...")
 }
 
