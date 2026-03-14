@@ -5,6 +5,10 @@ import (
 	"strconv"
 )
 
+func init() {
+	fmt.Println("初始化函数============================================init")
+}
+
 func main() {
 	var a int = 10
 
