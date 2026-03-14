@@ -10,8 +10,8 @@ func main() {
 func deferDemo() {
 	defer fmt.Println("===============defer111111")
 	defer fmt.Println("===============defer222222")
-	defer m22222()
 	fmt.Println("hello golang=====deferDemo")
+	defer m22222()
 }
 
 func m22222() {
