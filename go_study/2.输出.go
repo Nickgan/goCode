@@ -9,4 +9,6 @@ func main() {
 	fmt.Printf("%.2f\n", 1.25)        // 小数
 	fmt.Printf("%s\n", "哈哈哈")         // 字符串
 	fmt.Printf("%#v\n", "哇。。。")       // 用go的语法格式输出，很适合打印空字符串
+
+	fmt.Printf("%v,%v,%v", "aaa", 12.5, 123)
 }
