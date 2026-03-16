@@ -6,6 +6,12 @@ func main() {
 
 	sum1 := sum(1, 2, 3, 4, 5, 6, 7, 8, 9, 55)
 	fmt.Println("main sum==========>", sum1)
+
+	// 匿名函数
+	m2 := func() {
+		fmt.Println("匿名函数被调用==========>")
+	}
+	m2()
 }
 
 func sum(numList ...int) (sum int) {
