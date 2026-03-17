@@ -6,7 +6,7 @@ type Person struct {
 	Time string
 }
 
-func (p Person) PrintInfo() {
+func (p Person) Info() {
 	fmt.Printf("Time:%s\n", p.Time)
 }
 
@@ -27,5 +27,15 @@ func main() {
 
 	s.Name = "李四"
 	s.PrintInfo()
-	s.Person.PrintInfo()
+
+	//调用父结构体的方法
+	s.Info()
+
+	// 调用
+	s.Person.Info()
+
+	//访问父结构体的属性
+	fmt.Println(s.Time)
+
+	fmt.Println(s.Person.Time)
 }
