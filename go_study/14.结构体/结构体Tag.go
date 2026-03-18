@@ -1,6 +1,9 @@
 package main
 
-import "encoding/json"
+import (
+	"encoding/json"
+	"fmt"
+)
 
 /*
 *
@@ -12,6 +15,7 @@ import "encoding/json"
 type Student1 struct {
 	Name string `json:"name"`
 	Age  int    `json:"age"`
+	Sex  bool   `json:"-"` //中划线标识，不转换
 
 	//Name string
 	//Age  int
@@ -19,7 +23,7 @@ type Student1 struct {
 
 func main() {
 
-	var student = Student1{Name: "张三", Age: 18}
+	var student = Student1{Name: "张三", Age: 18, Sex: true}
 	byteData, _ := json.Marshal(student)
-	println(string(byteData))
+	fmt.Println(string(byteData))
 }
