@@ -25,9 +25,9 @@ func main() {
 	fmt.Print("请输入状态码：")
 	fmt.Scan(&code)
 
-	if code == 200 {
+	if code == int(OK) { //这里要转换为int，才能跟输入的int进行比较
 		OK.GetMsg()
-	} else if code == 500 {
+	} else if code == int(Error) {
 		Error.GetMsg()
 	} else {
 		fmt.Println("请输入正确的状态码")
