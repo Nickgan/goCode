@@ -24,6 +24,12 @@ func (c MyCode) getCode() {
 //}
 
 func main() {
+	/**
+	 * 1:自定义类型别名不能绑定方法
+	 * 2:类型别名和原类型可以直接比较
+	 * 3:类型别名打印类型还是原类型
+	 */
+
 	fmt.Printf("%T, %T \n", SuccessCode, SuccessAliasCode)
 
 	// 类型别名和原类型可以直接比较
