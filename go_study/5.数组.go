@@ -17,5 +17,6 @@ func main() {
 
 	var arr2 = [...]string{"a", "b", "c", "d", "e"}
 	fmt.Println(arr2)
+	fmt.Println("最后一个元素===>", arr2[len(arr2)-1])
 
 }
