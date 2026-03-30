@@ -35,4 +35,13 @@ func main() {
 	fmt.Println("=========================")
 
 	fmt.Printf("引用外面的变量: %v", version.Version2)
+
+	var f1 = -10.5
+	fmt.Println(f1)
+
+	fmt.Printf("%v,%T", f1, f1)
+
+	var 中文字符 rune = '中'
+	fmt.Printf("================>%c \n", 中文字符)
+
 }

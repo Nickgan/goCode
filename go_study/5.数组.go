@@ -19,4 +19,12 @@ func main() {
 	fmt.Println(arr2)
 	fmt.Println("最后一个元素===>", arr2[len(arr2)-1])
 
+	var arr3 [5]int
+	fmt.Println(arr3)
+
+	var a5 []string
+	fmt.Println("a5============>", a5)
+
+	a5 = make([]string, 5)
+	fmt.Println("a5============>", a5)
 }

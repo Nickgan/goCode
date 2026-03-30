@@ -39,4 +39,9 @@ func main() {
 	// 布尔类型
 	var b1 bool = true
 	fmt.Printf("%v", b1)
+
+	//最大值
+	fmt.Println(math.MaxInt32)
+
+	fmt.Println(math.MaxFloat64)
 }
