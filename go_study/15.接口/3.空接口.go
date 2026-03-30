@@ -19,9 +19,9 @@ func MyPrint(val interface{}) {
 }
 
 // MyPrint 空接口可以接受任何一种类型（第三种写法，写一个any）
-//func MyPrint(val any) {
-//	fmt.Println(val)
-//}
+func MyPrint1(val any) {
+	fmt.Println(val)
+}
 
 type MyCat struct {
 	Name string
