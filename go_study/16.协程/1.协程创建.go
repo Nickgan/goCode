@@ -18,4 +18,5 @@ func main() {
 	go sing()
 	go sing()
 	time.Sleep(2 * time.Second)
+	fmt.Println("main结束")
 }
