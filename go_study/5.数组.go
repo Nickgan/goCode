@@ -27,4 +27,9 @@ func main() {
 
 	a5 = make([]string, 5)
 	fmt.Println("a5============>", a5)
+
+	// 让编译器自动推断长度
+	var a6 = [...]int{1, 2, 3, 4, 5, 6}
+	fmt.Println("a6============>", a6)
+	fmt.Println("a6============>", len(a6))
 }
