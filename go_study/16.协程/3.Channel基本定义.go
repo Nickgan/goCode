@@ -15,7 +15,6 @@ func pay(name string, money int, wait1 *sync.WaitGroup) {
 	fmt.Printf("%s 购物结束 \n", name)
 
 	moneyChan <- money
-
 	wait1.Done()
 
 }
