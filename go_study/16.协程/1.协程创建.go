@@ -12,11 +12,13 @@ func sing() {
 }
 
 func main() {
+
+	now := time.Now()
 	go sing()
 	go sing()
 	go sing()
 	go sing()
 	go sing()
 	time.Sleep(2 * time.Second)
-	fmt.Println("main结束")
+	fmt.Println("main结束", time.Now().Sub(now))
 }

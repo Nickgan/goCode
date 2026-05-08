@@ -18,7 +18,7 @@ func sign(i int) {
 }
 
 func main() {
-	var count = 1000000
+	var count = 3
 	var startTime = time.Now()
 	wait.Add(count)
 	//go sign()

@@ -54,4 +54,6 @@ func main() {
 
 	sing(c)
 	sing(cat)
+
+	fmt.Println()
 }
