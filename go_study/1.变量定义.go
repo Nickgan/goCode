@@ -10,6 +10,9 @@ var (
 	age  = 18
 )
 
+// 常量定义（定义的时候就要赋值，并且不支持修改了）
+const version111 = "10.1"
+
 func main() {
 
 	fmt.Println("hello world")
@@ -44,4 +47,15 @@ func main() {
 	var 中文字符 rune = '中'
 	fmt.Printf("================>%c \n", 中文字符)
 
+	fmt.Printf("%v", version111)
+
+}
+
+// 定义多个变量
+func 多个变量() {
+
+	var a, b int
+	var a1, b1 = 1, 2
+	a2, b2 := 2, 3
+	fmt.Println(a, b, a1, b2, b1, a2)
 }

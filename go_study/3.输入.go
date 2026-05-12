@@ -11,4 +11,13 @@ func main() {
 
 	fmt.Println("n:", n)
 	fmt.Println("error:", error)
+
+	fmt.Println("===========")
+	f111()
+}
+
+func f111() {
+	var name string
+	n, err := fmt.Scan(&name)
+	fmt.Println(n, err)
 }

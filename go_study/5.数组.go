@@ -8,6 +8,7 @@ func main() {
 	fmt.Println(arr)
 	fmt.Println(len(arr))
 	fmt.Println(arr[0])
+	fmt.Printf("%T \n", arr)
 
 	for i := range arr {
 		fmt.Println(arr[i])
@@ -20,10 +21,10 @@ func main() {
 	fmt.Println("最后一个元素===>", arr2[len(arr2)-1])
 
 	var arr3 [5]int
-	fmt.Println(arr3)
+	fmt.Println("arr3 ====>", arr3)
 
 	var a5 []string
-	fmt.Println("a5============>", a5)
+	fmt.Println("a5============>", a5, a5 == nil)
 
 	a5 = make([]string, 5)
 	fmt.Println("a5============>", a5)
