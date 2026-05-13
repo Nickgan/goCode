@@ -1,7 +1,6 @@
 package main
 
 import (
-	"encoding/json"
 	"fmt"
 )
 
@@ -9,9 +8,12 @@ type UserInfo struct {
 	Name string `json:"name"`
 }
 
-func (u *UserInfo) SetName(name string) {
-	fmt.Printf("setName====>%p \n", u)
+func (u UserInfo) SetName(name string) {
 	u.Name = name
+}
+
+func (u UserInfo) GetName() string {
+	return u.Name
 }
 
 func main() {
@@ -19,10 +21,10 @@ func main() {
 		Name: "张三",
 	}
 	u.SetName("李四")
-	//fmt.Println(u.Name)
+	fmt.Println(u.Name)
+	fmt.Println(u.GetName())
 
-	bytedata, _ := json.Marshal(u)
-	fmt.Println(string(bytedata))
-
-	fmt.Printf("main=====>%p \n", &u)
+	//bytedata, _ := json.Marshal(u)
+	//fmt.Println(string(bytedata))
+	//fmt.Printf("main=====>%p \n", &u)
 }
