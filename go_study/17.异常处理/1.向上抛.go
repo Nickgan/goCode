@@ -15,5 +15,14 @@ func methond1() error {
 }
 
 func main() {
-	fmt.Println(parent())
+
+	//defer func() {
+	//	if e := recover(); e != nil {
+	//		fmt.Println("发生异常，被recover捕获了")
+	//	}
+	//}()
+
+	err := parent()
+	//panic(err.Error())
+	fmt.Println("===============>", err)
 }
