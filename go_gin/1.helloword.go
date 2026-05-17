@@ -8,8 +8,9 @@ import (
 
 func main() {
 
-	// 1. 创建默认的 Gin 引擎（自带了日志 Logger 和崩溃恢复 Recovery 中间件）
 	gin.SetMode(gin.ReleaseMode) //精简日志输出
+
+	// 1. 创建默认的 Gin 引擎（自带了日志 Logger 和崩溃恢复 Recovery 中间件）
 	r := gin.Default()
 
 	// 2. 定义一个 GET 请求的路由
