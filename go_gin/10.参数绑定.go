@@ -62,7 +62,7 @@ func main() {
 	// 4：json参数
 	r.POST("/user/add/json", func(c *gin.Context) {
 		type User struct {
-			Name string `json:"name"`
+			Name string `json:"name" binding:"required,min=3,max=5"`
 			Age  int    `json:"age"`
 		}
 
@@ -78,7 +78,7 @@ func main() {
 			Name        string `header:"Name"`
 			Age         int    `header:"Age"`
 			UserAgent   string `header:"User-Agent"`
-			ContentType string `header:"Content-Type"`
+			ContentType string `header:"ontent-Type"`
 		}
 
 		fmt.Println("hedaer")
