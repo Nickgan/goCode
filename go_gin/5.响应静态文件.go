@@ -7,7 +7,7 @@ func main() {
 
 	c := gin.Default()
 
-	// 前面是访问别名，后面是路径
+	// 前面是访问别名（一般就叫static，为了方便理解，这里写作st），后面是路径
 	c.Static("st", "static")
 
 	c.Run(":8080")
