@@ -75,15 +75,17 @@ func main() {
 	// 5：header参数
 	r.POST("/headerparam/demo", func(c *gin.Context) {
 		type User struct {
-			Name        string `header:"name"`
-			Age         int    `header:"age"`
+			Name        string `header:"Name"`
+			Age         int    `header:"Age"`
 			UserAgent   string `header:"User-Agent"`
-			ContentType string `header:"content-Type"`
+			ContentType string `header:"Content-Type"`
 		}
 
+		fmt.Println("hedaer")
 		var user User
 		err := c.ShouldBindHeader(&user)
 		fmt.Println(user, err)
+		fmt.Println("=====>", user.ContentType)
 		resp.OkWithMsg(c, "操作成功")
 	})
 
