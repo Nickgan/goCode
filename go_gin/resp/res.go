@@ -48,9 +48,11 @@ func OkWithMsg(c *gin.Context, msg string) {
 	response(c, Response{
 		Code: 0,
 		Msg:  msg,
+		Data: map[string]any{},
 	})
 }
 
+// 很少用
 func Fail(c *gin.Context, code int, data any, msg string) {
 	response(c, Response{
 		Code: code,
@@ -59,14 +61,16 @@ func Fail(c *gin.Context, code int, data any, msg string) {
 	})
 }
 
+// 用的最多的
 func FailWithMsg(c *gin.Context, msg string) {
 	response(c, Response{
 		Code: 7,
 		Msg:  msg,
-		Data: nil,
+		Data: map[string]any{},
 	})
 }
 
+// 自定义Code异常
 func FailWithCode(c *gin.Context, code Code) {
 	msg, ok := codeMap[code]
 	if !ok {
@@ -75,6 +79,6 @@ func FailWithCode(c *gin.Context, code Code) {
 	response(c, Response{
 		Code: 7,
 		Msg:  msg,
-		Data: nil,
+		Data: map[string]any{},
 	})
 }
