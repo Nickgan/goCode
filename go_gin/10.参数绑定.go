@@ -21,7 +21,7 @@ func main() {
 		}
 
 		var user User
-		c.BindQuery(&user)
+		c.ShouldBindQuery(&user)
 
 		fmt.Println("bindQuery, user==========>", user)
 
@@ -62,7 +62,7 @@ func main() {
 	// 4：json参数
 	r.POST("/user/add/json", func(c *gin.Context) {
 		type User struct {
-			Name string `json:"name" binding:"required,min=3,max=5"`
+			Name string `json:"name"`
 			Age  int    `json:"age"`
 		}
 

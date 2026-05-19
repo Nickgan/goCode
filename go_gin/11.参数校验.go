@@ -4,14 +4,8 @@ import (
 	"fmt"
 	"goCode/go_gin/resp"
 	"net/http"
-	"reflect"
 
 	"github.com/gin-gonic/gin"
-	"github.com/gin-gonic/gin/binding"
-	"github.com/go-playground/locales/zh"
-	"github.com/go-playground/universal-translator"
-	"github.com/go-playground/validator/v10"
-	zh_translations "github.com/go-playground/validator/v10/translations/zh"
 )
 
 /*
@@ -19,43 +13,23 @@ import (
 * 参考文档： https://www.fengfengzhidao.com/special/3/41
  */
 
-var trans ut.Translator
-
-func init() {
-	// 创建翻译器
-	uni := ut.New(zh.New())
-	trans, _ = uni.GetTranslator("zh")
-
-	// 注册翻译器
-	v, ok := binding.Validator.Engine().(*validator.Validate)
-	if ok {
-		_ = zh_translations.RegisterDefaultTranslations(v, trans)
-	}
-
-	v.RegisterTagNameFunc(func(field reflect.StructField) string {
-		label := field.Tag.Get("label")
-		if label == "" {
-			return field.Name
-		}
-		return label
-	})
-}
 func main() {
 
 	gin.SetMode(gin.ReleaseMode) //精简日志输出
 	r := gin.Default()
 
-	// 4：json参数
+	// 4：json参数(结构体属性名要大写)
 	r.POST("/user/add/json/validata", func(c *gin.Context) {
 		type User struct {
 			Name string `json:"name" binding:"required,min=3,max=5"`
-			Age  int    `json:"age"`
+			Age  int    `json:"age" binding:"gte=10,lte=15"`
+			Sex  string `json:"sex" binding:"required,oneof=男 女"`
 		}
 
 		var user User
 		err := c.ShouldBindJSON(&user)
-		fmt.Println("error============>", err.Error())
 		if err != nil {
+			fmt.Println("error============>", err.Error())
 			// 校验失败，返回 400 错误
 			c.JSON(http.StatusBadRequest, gin.H{"error": err.Error()})
 			return
@@ -64,5 +38,6 @@ func main() {
 		resp.OkWithMsg(c, "操作成功")
 	})
 
+	fmt.Println("启动成功...")
 	r.Run(":8080")
 }
