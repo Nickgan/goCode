@@ -8,6 +8,7 @@ import (
 var (
 	name = "全局变量name 张三"
 	age  = 18
+	sex  = true
 )
 
 // 常量定义（定义的时候就要赋值，并且不支持修改了）
@@ -17,7 +18,7 @@ func main() {
 
 	fmt.Println("hello world")
 
-	// 1.先定义，在复制
+	// 1.先声明，在复制
 	var name string
 	name = "张三"
 	fmt.Println("name==========>", name)
@@ -48,6 +49,8 @@ func main() {
 	fmt.Printf("================>%c \n", 中文字符)
 
 	fmt.Printf("%v", version111)
+
+	fmt.Println(sex)
 
 }
 

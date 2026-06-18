@@ -30,18 +30,22 @@ func main() {
 
 	//多行字符串(原样输出)
 	var str = `asdfasdf
-					adfadf
-				adfasdfa
-				adfasdf`
+	adfadf
+adfasdfa
+adfasdf`
 
 	fmt.Println(str)
 
 	// 布尔类型
 	var b1 bool = true
-	fmt.Printf("%v", b1)
+	fmt.Println("%v", b1)
 
 	//最大值
 	fmt.Println(math.MaxInt32)
+
+	fmt.Println(math.MaxFloat64)
+
+	fmt.Println(math.MaxUint8)
 
 	fmt.Println(math.MaxFloat64)
 }
