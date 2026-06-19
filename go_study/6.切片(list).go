@@ -7,7 +7,7 @@ import (
 )
 
 /*
-切片对应java里面的List
+切片对应java里面的List，切片声明就是数组不定义长度，切片是动态数组，切片的长度是可变的
 */
 func main() {
 
@@ -39,7 +39,7 @@ func main() {
 	s1 := arr[1:3]
 	s1 = append(s1, 11)
 	fmt.Printf("%T \n", s1)
-	fmt.Println(s1)
+	fmt.Println("s1============>", s1)
 
 	s2 := []int{1, 2, 3}
 	fmt.Println(s2)
