@@ -39,11 +39,13 @@ func main() {
 		close(moneyChan)
 	}()
 
+	// 遍历管道，获取管道中的值，存放到一个切片中
 	var moneyList = []int{}
 	for i := range moneyChan {
 		moneyList = append(moneyList, i)
 	}
 
+	// 遍历切片，求和
 	var sum int
 	for i := range moneyList {
 		sum += moneyList[i]
