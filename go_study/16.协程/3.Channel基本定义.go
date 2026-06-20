@@ -6,6 +6,7 @@ import (
 	"time"
 )
 
+// 定义一个全局的管道变量moneyChan, 该变量只能存储int类型，容量为100
 var moneyChan chan int = make(chan int, 100)
 
 func pay(name string, money int, wait1 *sync.WaitGroup) {
@@ -30,7 +31,7 @@ func main() {
 
 	go func() {
 		defer close(moneyChan)
-		wait1.Wait()
+		wait1.Wait() //这句代码执行完表示所有的goroutine都执行完毕了，可以关闭管道了（就是所有存放值的操作都完毕了，可以关闭了）
 	}()
 
 	var moneyList = []int{}

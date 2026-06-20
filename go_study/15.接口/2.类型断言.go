@@ -51,4 +51,5 @@ func main() {
 
 	c1, ok1 := p1.(Woman) // 两个参数    断言之后的类型   是否是对应类型
 	fmt.Println(c1, ok1)
+
 }
