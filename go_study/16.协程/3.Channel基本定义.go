@@ -30,8 +30,13 @@ func main() {
 	go pay("李四", 3, &wait1)
 
 	go func() {
-		defer close(moneyChan)
-		wait1.Wait() //这句代码执行完表示所有的goroutine都执行完毕了，可以关闭管道了（就是所有存放值的操作都完毕了，可以关闭了）
+		//写法1：
+		//defer close(moneyChan)
+		//wait1.Wait() //这句代码执行完表示所有的goroutine都执行完毕了，可以关闭管道了（就是所有存放值的操作都完毕了，可以关闭了）
+
+		//写法2：
+		wait1.Wait()
+		close(moneyChan)
 	}()
 
 	var moneyList = []int{}
