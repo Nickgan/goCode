@@ -14,7 +14,7 @@ func (p Person) Info() {
 
 // Student 定义结构体
 type Student struct {
-	Person // 这里组合就是java的集成
+	Person // 这里组合就是java的继承
 	Name   string
 	Age    int
 }

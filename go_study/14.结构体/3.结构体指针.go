@@ -8,11 +8,11 @@ type UserInfo struct {
 	Name string `json:"name"`
 }
 
-func (u UserInfo) SetName(name string) {
+func (u *UserInfo) SetName(name string) {
 	u.Name = name
 }
 
-func (u UserInfo) GetName() string {
+func (u *UserInfo) GetName() string {
 	return u.Name
 }
 
