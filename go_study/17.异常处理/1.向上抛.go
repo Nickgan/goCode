@@ -24,5 +24,5 @@ func main() {
 
 	err := parent()
 	//panic(err.Error())
-	fmt.Println("===============>", err)
+	fmt.Println("===============>", err.Error())
 }

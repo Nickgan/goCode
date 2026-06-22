@@ -7,12 +7,15 @@ import (
 )
 
 var wait111 sync.WaitGroup
+
+// 线程安全的map
 var mp1 = sync.Map{}
 
 func reader1() {
 
 	for {
-		fmt.Println(mp1.Load("time"))
+		v, ok := mp1.Load("time")
+		fmt.Println(v, "==============", ok)
 	}
 
 	wait111.Done()

@@ -20,9 +20,13 @@ func read() {
 func main() {
 
 	defer func() {
+
 		if err := recover(); err != nil {
 			//fmt.Println(err)
 			fmt.Println("发生异常了，异常信息=====>", err)
+
+			//打印堆栈信息(让知道哪里错了)
+			//fmt.Println(string(debug.Stack()))
 		}
 	}()
 
