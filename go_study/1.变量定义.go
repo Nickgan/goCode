@@ -52,11 +52,13 @@ func main() {
 
 	fmt.Println(sex)
 
+	//var x = 10
+	//fmt.Println(*&x)
+
 }
 
 // 定义多个变量
 func 多个变量() {
-
 	var a, b int
 	var a1, b1 = 1, 2
 	a2, b2 := 2, 3

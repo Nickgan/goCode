@@ -61,4 +61,15 @@ func main() {
 	var arr2 = [...]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
 	s := arr2[2:3]
 	fmt.Println(s)
+
+	// 切片引用传递
+	var arr33 = []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10}
+	fmt.Println("mai改变之前============>", arr33)
+	s1m(arr33)
+	fmt.Println("mai改变之后===========>", arr33)
+}
+
+func s1m(is []int) {
+	is[0] = 100
+	fmt.Println("s1===========>", is)
 }
