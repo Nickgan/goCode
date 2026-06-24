@@ -28,7 +28,39 @@ type MyCat struct {
 	Age  int
 }
 
+func emptyInterfaceDemo(value any) {
+
+	if str, ok := value.(string); ok {
+		fmt.Println("是字符串:", str)
+	}
+
+	switch v := value.(type) {
+	case int:
+		fmt.Println("是整数:", v)
+	case string:
+		fmt.Println("是字符串:", v)
+	case []int:
+		fmt.Println("是切片:", v)
+	case map[string]interface{}:
+		fmt.Println("是map[string]interface{}字典:", v)
+	case map[string]int:
+		fmt.Println("是map[string]int字典:", v)
+	default:
+		fmt.Println("类型未知:", v)
+
+	}
+}
+
 func main() {
 	MyPrint(MyCat{Name: "小猫", Age: 1})
 	MyPrint(1)
+
+	// 空接口
+	fmt.Println("\n=== 空接口示例 ===")
+	emptyInterfaceDemo(42)
+	emptyInterfaceDemo("hello")
+	emptyInterfaceDemo([]int{1, 2, 3})
+	emptyInterfaceDemo(map[string]int{"a": 1})
+	emptyInterfaceDemo(map[string]string{"a": "hello"})
+
 }

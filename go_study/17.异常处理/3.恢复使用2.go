@@ -3,11 +3,12 @@ package main
 import (
 	"fmt"
 	"os"
+	"runtime/debug"
 )
 
 func globalRecorver() {
 	if r := recover(); r != nil {
-		fmt.Println("发生异常了，异常信息=====>", r)
+		fmt.Println("发生异常了，异常信息=====>", string(debug.Stack()))
 	}
 }
 
@@ -25,6 +26,6 @@ func read2(finaName string) {
 
 func main() {
 	defer globalRecorver()
-	read2("go_study/17.异常处理/3.恢复使用2.go")
+	read2("go_study/17.异常处理/3.恢复使用21.go")
 	fmt.Println("mai方法结束。。。")
 }

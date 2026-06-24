@@ -1,6 +1,9 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
 
 //var ch = make(chan int, 10)
 
@@ -18,17 +21,32 @@ func main() {
 	//
 	//close(ch)
 
-	var ch chan int
-	ch = make(chan int, 10)
+	//var ch chan int
+	//ch = make(chan int, 10)
+	//
+	//ch <- 1
+	//ch <- 2
+	//ch <- 3
+	//
+	//close(ch)
+	//
+	//for i := range ch {
+	//	fmt.Println(i)
+	//}
 
-	ch <- 1
-	ch <- 2
-	ch <- 3
+	// 无缓冲区
+	var ch = make(chan string)
 
-	close(ch)
+	go func() {
+		defer close(ch)
+		ch <- "hello"
+		ch <- "world"
+	}()
 
-	for i := range ch {
-		fmt.Println(i)
+	time.Sleep(3 * time.Second)
+
+	for s := range ch {
+		fmt.Println(s)
 	}
 
 }

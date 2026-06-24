@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"os"
+	"runtime"
 )
 
 func main() {
@@ -18,5 +19,9 @@ func main() {
 	}
 
 	fmt.Println(string(byteData))
+
+	// 获取当前文件信息
+	_, filePath, l, ok := runtime.Caller(0)
+	fmt.Println(filePath, l, ok)
 
 }
