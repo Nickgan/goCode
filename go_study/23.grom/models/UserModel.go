@@ -28,3 +28,8 @@ func (u *UserModel) BeforeUpdate(tx *gorm.DB) (err error) {
 	fmt.Println("更新的钩子函数")
 	return nil
 }
+
+func (u *UserModel) BeforeDelete(tx *gorm.DB) (err error) {
+	fmt.Println("删除钩子")
+	return
+}

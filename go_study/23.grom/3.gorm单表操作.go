@@ -25,7 +25,10 @@ func main() {
 	//selectData(global.DB)
 
 	// 更新操作
-	updateData(global.DB)
+	//updateData(global.DB)
+
+	//删除操作
+	deleteData(global.DB)
 }
 
 // 更新操作
@@ -54,6 +57,15 @@ func updateData(db *gorm.DB) {
 	db.Model(&models.UserModel{}).Where("id", 61).UpdateColumn("name", "甘波888")
 	fmt.Println("UpdateColumn更新成功。=============>", user)
 
+}
+
+// 删除操作
+func deleteData(db *gorm.DB) {
+	fmt.Println("1.============>delete方法删除")
+	db.Delete(&models.UserModel{}, 61)
+
+	fmt.Println("2.============>批量删除")
+	db.Delete(&models.UserModel{}, []int{61, 62, 63})
 }
 
 // 查询操作
