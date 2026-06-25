@@ -62,10 +62,23 @@ func updateData(db *gorm.DB) {
 // 删除操作
 func deleteData(db *gorm.DB) {
 	fmt.Println("1.============>delete方法删除")
-	db.Delete(&models.UserModel{}, 61)
+	db.Delete(&models.UserModel{}, 60)
 
 	fmt.Println("2.============>批量删除")
 	db.Delete(&models.UserModel{}, []int{61, 62, 63})
+
+	// 查询删除记录
+	var user models.UserModel
+	db.Debug().Where("id = ?", 60).Find(&user)
+	fmt.Println("查询删除记录。=============>", user)
+
+	// Unscoped 忽略软删除记录查询
+	db.Debug().Where("id = ?", 60).Unscoped().Find(&user)
+	fmt.Println("忽略软删除记录查询。=============>", user)
+
+	// 真正的物理删除
+	db.Unscoped().Delete(&models.UserModel{}, 60)
+
 }
 
 // 查询操作

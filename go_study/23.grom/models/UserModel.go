@@ -8,10 +8,11 @@ import (
 )
 
 type UserModel struct {
-	ID         int64     `gorm:"primaryKey"`      // 主键
-	Name       string    `gorm:"not null;unique"` //不能为空，唯一
-	Age        int       `gorm:"not null"`
-	CreateTime time.Time `gorm:"autoCreateTime"` // 在创建记录时自动设置为当前时间
+	ID         int64          `gorm:"primaryKey"`      // 主键
+	Name       string         `gorm:"not null;unique"` //不能为空，唯一
+	Age        int            `gorm:"not null"`
+	CreateTime time.Time      `gorm:"autoCreateTime"` // 在创建记录时自动设置为当前时间
+	DeletedAt  gorm.DeletedAt // 软删除
 }
 
 // BeforeCreate 创建(insert)的钩子函数
