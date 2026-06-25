@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"time"
 
+	"goCode/go_study/23.grom/models/dto"
 	"gorm.io/gorm"
 )
 
@@ -11,8 +12,11 @@ type UserModel struct {
 	ID         int64          `gorm:"primaryKey"`      // 主键
 	Name       string         `gorm:"not null;unique"` //不能为空，唯一
 	Age        int            `gorm:"not null"`
+	Info       dto.UserInfo   `gorm:"column:userInfo;type:json;serializer:json"`
 	CreateTime time.Time      `gorm:"autoCreateTime"` // 在创建记录时自动设置为当前时间
 	DeletedAt  gorm.DeletedAt // 软删除
+	Status     dto.UserStatus `gorm:"column:status;type:json;serializer:json"`
+	Money      int            `gorm:"column:money;default:0"`
 }
 
 // BeforeCreate 创建(insert)的钩子函数
@@ -32,5 +36,10 @@ func (u *UserModel) BeforeUpdate(tx *gorm.DB) (err error) {
 
 func (u *UserModel) BeforeDelete(tx *gorm.DB) (err error) {
 	fmt.Println("删除钩子")
+	return
+}
+
+func (u *UserModel) AfterFind(tx *gorm.DB) (err error) {
+	fmt.Println("查询钩子")
 	return
 }

@@ -28,7 +28,10 @@ func main() {
 	//updateData(global.DB)
 
 	//删除操作
-	deleteData(global.DB)
+	//deleteData(global.DB)
+
+	// 原生sql
+	rawSql(global.DB)
 }
 
 // 更新操作
@@ -116,6 +119,27 @@ func selectData(db *gorm.DB) {
 	var user2 []models.UserModel
 	db.Debug().Find(&user2)
 	fmt.Println("=============>", user2)
+}
+
+type userListDTO struct {
+	ID       int
+	UserName string `gorm:"column:name"`
+}
+
+// 原生 sql
+func rawSql(db *gorm.DB) {
+	var users []models.UserModel
+	db.Debug().Raw("select * from user_models where deleted_at is null").Scan(&users)
+	for i, v := range users {
+		fmt.Println(i, v)
+	}
+
+	fmt.Println("查询部分字段============")
+	var users1 []userListDTO
+	db.Debug().Raw("select id,name from user_models where deleted_at is null").Scan(&users1)
+	for i, v := range users1 {
+		fmt.Println(i, v.UserName)
+	}
 }
 
 func insertData(db *gorm.DB) {
