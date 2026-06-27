@@ -22,7 +22,7 @@ func main() {
 	//insertData(global.DB)
 
 	// 查询操作
-	//selectData(global.DB)
+	selectData(global.DB)
 
 	// 更新操作
 	//updateData(global.DB)
@@ -31,7 +31,7 @@ func main() {
 	//deleteData(global.DB)
 
 	// 原生sql
-	rawSql(global.DB)
+	//rawSql(global.DB)
 }
 
 // 更新操作
@@ -86,20 +86,23 @@ func deleteData(db *gorm.DB) {
 
 // 查询操作
 func selectData(db *gorm.DB) {
-	fmt.Println("====查询全部=======")
-	var users []models.UserModel
-	err := db.Find(&users).Error
-	if err != nil {
-		fmt.Println(err)
-		return
-	}
-	for _, user := range users {
-		fmt.Println(user)
-	}
+	var err error
 
-	fmt.Println("====查询单个=======")
+	//fmt.Println("====查询全部=======")
+	//var users []models.UserModel
+	//err := db.Find(&users).Error
+	//if err != nil {
+	//	fmt.Println(err)
+	//	return
+	//}
+	//for _, user := range users {
+	//	fmt.Println(user)
+	//}
+
+	fmt.Println("====查询单个(果查不到则会报错)=======")
 	var user models.UserModel
-	err = db.Take(&user).Error
+	//err = db.Debug().Take(&user).Error
+	err = db.Debug().Take(&user, "id=?", 100).Error
 	if err != nil {
 		fmt.Println(err)
 	}
