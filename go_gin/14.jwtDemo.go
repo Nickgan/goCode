@@ -35,6 +35,13 @@ func main() {
 		})
 	}
 
+	//================= 静态文件服务 ==============
+	//提供静态文件服务
+	r.Static("/static", "./static")
+
+	// 提供文件系统
+	r.StaticFS("/files", http.Dir("./static"))
+
 	r.Run(":80")
 
 }
