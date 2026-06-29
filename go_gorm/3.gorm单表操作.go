@@ -4,8 +4,9 @@ import (
 	"fmt"
 	"goCode/go_gorm/global"
 	"goCode/go_gorm/models"
-	"gorm.io/gorm"
 	"time"
+
+	"gorm.io/gorm"
 )
 
 func main() {
@@ -18,7 +19,7 @@ func main() {
 	fmt.Println("生成表结构成功。")
 
 	// 插入操作
-	//insertData(global.DB)
+	insertData(global.DB)
 
 	// 查询操作
 	selectData(global.DB)
@@ -147,8 +148,8 @@ func rawSql(db *gorm.DB) {
 func insertData(db *gorm.DB) {
 	var users = []models.UserModel{
 		{Name: "张三", Age: 18},
-		{Name: "李四", Age: 19},
-		{Name: "王五", Age: 20},
+		//{Name: "李四", Age: 19},
+		//{Name: "王五", Age: 20},
 	}
 
 	// 插入数据

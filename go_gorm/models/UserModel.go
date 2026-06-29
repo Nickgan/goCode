@@ -25,7 +25,6 @@ func (u *UserModel) BeforeCreate(tx *gorm.DB) error {
 
 	fmt.Println("枫枫" + time.Now().Format("2006-01-02 15:04:05.000"))
 	u.Name = "枫枫" + time.Now().Format("2006-01-02 15:04:05.000")
-	time.Sleep(2 * time.Second)
 	return nil
 }
 
