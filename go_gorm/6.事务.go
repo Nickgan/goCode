@@ -2,9 +2,9 @@ package main
 
 import (
 	"fmt"
+	"goCode/go_gorm/global"
+	"goCode/go_gorm/models"
 
-	"goCode/go_study/23.grom/global"
-	"goCode/go_study/23.grom/models"
 	"gorm.io/gorm"
 )
 

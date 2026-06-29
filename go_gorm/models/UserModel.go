@@ -2,9 +2,9 @@ package models
 
 import (
 	"fmt"
+	"goCode/go_gorm/models/dto"
 	"time"
 
-	"goCode/go_study/23.grom/models/dto"
 	"gorm.io/gorm"
 )
 

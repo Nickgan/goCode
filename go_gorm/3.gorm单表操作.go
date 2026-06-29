@@ -2,11 +2,10 @@ package main
 
 import (
 	"fmt"
-	"time"
-
-	"goCode/go_study/23.grom/global"
-	"goCode/go_study/23.grom/models"
+	"goCode/go_gorm/global"
+	"goCode/go_gorm/models"
 	"gorm.io/gorm"
+	"time"
 )
 
 func main() {

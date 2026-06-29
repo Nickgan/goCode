@@ -3,9 +3,8 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-
-	"goCode/go_study/23.grom/global"
-	"goCode/go_study/23.grom/models"
+	"goCode/go_gorm/global"
+	"goCode/go_gorm/models"
 )
 
 func main() {
