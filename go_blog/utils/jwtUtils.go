@@ -2,6 +2,7 @@ package utils
 
 import (
 	"errors"
+	"goCode/go_blog/config"
 	"time"
 
 	"github.com/golang-jwt/jwt/v5"
@@ -10,13 +11,13 @@ import (
 var jwtSecret = []byte("your-secret-key") // 在生产环境中应该从环境变量读取
 
 type Claims struct {
-	UserID   uint   `json:"user_id"`
+	UserID   int    `json:"user_id"`
 	Username string `json:"user_name"`
 	jwt.RegisteredClaims
 }
 
 // GenerateToken 生成JWT token
-func GenerateToken(userID uint, username string) (string, error) {
+func GenerateToken(userID int, username string) (string, error) {
 	claims := Claims{
 		UserID:   userID,
 		Username: username,
@@ -28,13 +29,15 @@ func GenerateToken(userID uint, username string) (string, error) {
 	}
 
 	token := jwt.NewWithClaims(jwt.SigningMethodHS256, claims)
-	return token.SignedString(jwtSecret)
+	//return token.SignedString(jwtSecret)
+	return token.SignedString([]byte(config.SysConfig.Jwt.Secret))
 }
 
 // ParseToken 解析JWT token
 func ParseToken(tokenString string) (*Claims, error) {
 	token, err := jwt.ParseWithClaims(tokenString, &Claims{}, func(token *jwt.Token) (interface{}, error) {
-		return jwtSecret, nil
+		//return jwtSecret, nil
+		return []byte(config.SysConfig.Jwt.Secret), nil
 	})
 
 	if err != nil {

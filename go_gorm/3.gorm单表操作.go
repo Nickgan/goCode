@@ -99,7 +99,7 @@ func selectData(db *gorm.DB) {
 	//	fmt.Println(user)
 	//}
 
-	fmt.Println("====查询单个(果查不到则会报错)=======")
+	fmt.Println("====查询单个(如果查不到则会报错)=======")
 	var user models.UserModel
 	//err = db.Debug().Take(&user).Error
 	err = db.Debug().Take(&user, "id=?", 100).Error
