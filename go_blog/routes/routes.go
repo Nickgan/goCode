@@ -12,6 +12,8 @@ func SetupRoutes() *gin.Engine {
 	r := gin.New()
 
 	var userController = &controller.UserController{}
+	var postController = &controller.PostController{}
+	var commentController = &controller.CommentController{}
 
 	// 使用中间件
 	r.Use(middleware.LoggerMiddleware())
@@ -36,18 +38,39 @@ func SetupRoutes() *gin.Engine {
 			authenticated.GET("/profile", userController.GetUserInfo)
 
 			// 文章相关路由
+			posts := authenticated.Group("/posts")
+			{
+				posts.POST("/createPost", postController.CreatePost) // 发帖
+				posts.GET("/update", postController.UpdatePost)      // 更新帖子
+				posts.GET("/delete", postController.DeletePost)      // 删除
+			}
 
 			// 评论相关路由
+			comments := authenticated.Group("/comments")
+			{
+				comments.POST("/createComment", commentController.CreateComment) // 发表评论
+			}
 		}
 
-		// 公开路由（无需认证）
-		//public := api.Group("")
-		//{
-		//
-		//	// 文章相关路由
-		//
-		//	// 评论相关路由
-		//}
+		//公开路由（无需认证）
+		public := api.Group("")
+		{
+
+			// 文章相关路由
+			public.Group("/post")
+			{
+				public.GET("/getPosts", postController.GetPosts) // 获取帖子列表
+				public.GET("/getPost", postController.GetPost)   // 获取单个帖子
+			}
+
+			// 评论相关路由
+			public.Group("/comment")
+			{
+				public.GET("/getComments", commentController.GetComments) // 获取评论列表
+				public.GET("/getComment", commentController.GetComment)   // 获取单个评论
+			}
+
+		}
 	}
 
 	// 健康检查
