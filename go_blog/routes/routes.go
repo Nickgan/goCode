@@ -23,14 +23,8 @@ func SetupRoutes() *gin.Engine {
 	// API路由分组
 	api := r.Group("/api/v1")
 	{
-		// 认证相关路由（无需认证）
-		auth := api.Group("/auth")
-		{
-			auth.POST("/login", userController.Login)
-			auth.POST("/register", userController.Register)
-		}
 
-		// 需要认证的路由
+		// =========================需要认证的路由=========================
 		authenticated := api.Group("")
 		authenticated.Use(middleware.AuthMiddleware())
 		{
@@ -52,22 +46,31 @@ func SetupRoutes() *gin.Engine {
 			}
 		}
 
-		//公开路由（无需认证）
+		// =========================公开路由（无需认证）=========================
+
+		// 认证相关路由（无需认证）
+		auth := api.Group("/auth")
+		{
+			auth.POST("/login", userController.Login)
+			auth.POST("/register", userController.Register)
+		}
+
+		// 公开路由
 		public := api.Group("")
 		{
 
 			// 文章相关路由
-			public.Group("/post")
+			postsPublic := public.Group("/posts")
 			{
-				public.GET("/getPosts", postController.GetPosts) // 获取帖子列表
-				public.GET("/getPost", postController.GetPost)   // 获取单个帖子
+				postsPublic.GET("/getPosts", postController.GetPosts) // 获取帖子列表
+				postsPublic.GET("/getPost", postController.GetPost)   // 获取单个帖子
 			}
 
 			// 评论相关路由
-			public.Group("/comment")
+			commentsPublic := public.Group("/comments")
 			{
-				public.GET("/getComments", commentController.GetComments) // 获取评论列表
-				public.GET("/getComment", commentController.GetComment)   // 获取单个评论
+				commentsPublic.GET("/getComments", commentController.GetComments) // 获取评论列表
+				commentsPublic.GET("/getComment", commentController.GetComment)   // 获取单个评论
 			}
 
 		}
