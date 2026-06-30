@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// 评论模型
+// Comment 评论模型
 type Comment struct {
 	ID        int            `json:"id" gorm:"primaryKey"`
 	Content   string         `json:"content" gorm:"type:text;not null"`

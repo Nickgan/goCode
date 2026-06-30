@@ -6,7 +6,7 @@ import (
 	"gorm.io/gorm"
 )
 
-// 文章模型
+// Post 文章模型
 type Post struct {
 	ID        int            `json:"id" gorm:"primaryKey"`
 	Title     string         `json:"title" gorm:"not null"`
