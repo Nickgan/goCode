@@ -17,7 +17,7 @@ type CreateCommentRequest struct {
 	Content string `json:"content" binding:"required,min=1,max=1000"`
 }
 
-// 发表评论
+// CreateComment 发表评论
 func (commentController *CommentController) CreateComment(c *gin.Context) {
 	var request CreateCommentRequest
 	if err := c.ShouldBindJSON(&request); err != nil {
