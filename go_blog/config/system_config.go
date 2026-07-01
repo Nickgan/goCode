@@ -95,8 +95,3 @@ func InitDatabase() {
 
 	log.Println("数据库链接并且自动迁移表结构成功")
 }
-
-// GetDB 获取数据库连接实例
-func GetDB() *gorm.DB {
-	return DB
-}
